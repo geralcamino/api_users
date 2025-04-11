@@ -54,20 +54,17 @@ dist/
 *.egg-info/
 .eggs/
 
-# Archivos de caché de pip
+
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Entornos creados por pipenv o poetry
 Pipfile.lock
 poetry.lock
 
-# Carpeta de resultados (si usas notebooks o scripts que generan reportes)
 output/
 results/
 report/
 
-# Archivos exportados
 *.csv
 *.xls
 *.xlsx
@@ -75,19 +72,14 @@ report/
 *.xml
 *.parquet
 
-# Archivos de entorno
 .env
 .env.*
 
-# Claves o tokens sensibles (¡nunca los subas!)
 secrets.json
 apikeys.json
 
-# Archivos de configuración personal
 *.code-workspace
 
-# Carpeta de Streamlit (si usas esta herramienta)
 .streamlit/
 
-# Carpeta de configuración local
 .settings/
