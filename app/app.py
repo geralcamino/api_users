@@ -52,7 +52,6 @@ def obtener_usuario():
     except Exception as e: 
         return jsonify({"error": str(e)}), 500
 
-
 @app.route("/api/usuarios/<int:id_usuario>", methods=["DELETE"])
 def eliminar_usuario(id_usuario):
     try: 
@@ -60,8 +59,13 @@ def eliminar_usuario(id_usuario):
         cursor = conn.cursor()
 
         cursor.execute("EXEC delete_user @id = ?", (id_usuario,))
-        conn.commit()
+        affected_rows = cursor.rowcount
+        if affected_rows == 0:
+            cursor.close()
+            conn.close()
+            return jsonify({"mensaje": "Usuario no encontrado"}), 404
 
+        conn.commit()
         cursor.close()
         conn.close()
 
